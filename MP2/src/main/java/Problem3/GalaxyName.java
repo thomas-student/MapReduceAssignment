@@ -8,12 +8,9 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
 public class GalaxyName extends Text{
-
-	private String name;
 	
 	public GalaxyName(String name){
-		super();
-		this.name = name;
+		super(name);
 	}
 
 	/* (non-Javadoc)
@@ -21,6 +18,6 @@ public class GalaxyName extends Text{
 	 */
 	@Override
 	public String toString() {
-		return "galaxy: "+name;
+		return "galaxy: "+super.toString();
 	}	
 }
