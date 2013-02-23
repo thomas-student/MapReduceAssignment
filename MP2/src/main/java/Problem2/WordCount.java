@@ -15,7 +15,7 @@ import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
         
 public class WordCount {
         
- public static class Map extends Mapper<LongWritable, Text, Text, IntWritable> {
+ public static class Map extends Mapper<LongWritable, Text, Text, MapWritable> {
     private final static IntWritable one = new IntWritable(1);
     private Text word = new Text();
         
@@ -24,21 +24,29 @@ public class WordCount {
         StringTokenizer tokenizer = new StringTokenizer(line);
         String docnum = tokenizer.nextToken();
         while (tokenizer.hasMoreTokens()) {
-            word.set(tokenizer.nextToken()+docnum);
-            context.write(word, one);
+            word.set(tokenizer.nextToken());
+            MapWritable mw = new MapWritable();
+            mw.put(new IntWritable(Integer.parseInt(docnum)), new IntWritable(1));
+            context.write(word, mw);
+            
         }
     }
- } //hi
+ } 
         
- public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
+ public static class Reduce extends Reducer<Text, IntWritable, Text, MapWritable> {
 
-    public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+    public void reduce(Text key, Iterable<MapWritable> values, Context context) 
       throws IOException, InterruptedException {
         int sum = 0;
-        for (IntWritable val : values) {
-            sum += val.get();
+        MapWritable m = new MapWritable();
+        for (MapWritable val : values) {
+        	for(Writable k : val.keySet())
+        		if(m.get(k) == null)
+        			m.put(k, new IntWritable(1));
+        		else
+        			m.put(k, new IntWritable(1 +((IntWritable)m.get(k)).get()));
         }
-        context.write(key, new IntWritable(sum));
+        context.write(key, m);
     }
  }
         
@@ -48,7 +56,8 @@ public class WordCount {
     Job job = new Job(conf, "wordcount");
     
     job.setOutputKeyClass(Text.class);
-    job.setOutputValueClass(IntWritable.class);
+    job.setOutputValueClass(MapWritable.class);
+    job.setMapOutputValueClass(MapWritable.class);
     job.setMapperClass(Map.class);
     job.setReducerClass(Reduce.class);
     
