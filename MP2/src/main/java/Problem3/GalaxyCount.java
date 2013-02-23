@@ -103,8 +103,8 @@ public class GalaxyCount {
 		conf.set("mapred.textoutputformat.separator", " ");
 		Job job = new Job(conf, "wordcount");
 
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(IntWritable.class);
+		job.setOutputKeyClass(GalaxyName.class);
+		job.setOutputValueClass(GalaxyObj.class);
 		job.setMapperClass(Map.class);
 		job.setReducerClass(Reduce.class);
 
