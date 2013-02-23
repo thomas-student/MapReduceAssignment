@@ -31,10 +31,15 @@ public class GalaxyCount {
 					.split("diameter: ")[1].split("\\ ");
 			String[] rotations = line.split("rotation: ")[1].split("\\ ");
 			for (String k : masses) {
+				try{
 				GalaxyObj o = new GalaxyObj();
 				o.setMass(Float.parseFloat(k));
 				o.setMassCount(1);
 				context.write(new GalaxyName(name), o);
+				}
+				catch(NumberFormatException e){
+					continue;
+				}
 			}
 			for (String k : distances) {
 				GalaxyObj o = new GalaxyObj();

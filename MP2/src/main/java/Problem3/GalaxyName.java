@@ -12,6 +12,10 @@ public class GalaxyName extends Text{
 	public GalaxyName(String name){
 		super(name);
 	}
+	
+	public GalaxyName(){
+		super();
+	}
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
