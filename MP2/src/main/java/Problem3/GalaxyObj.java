@@ -25,10 +25,14 @@ public class GalaxyObj extends MapWritable {
 	 */
 	public GalaxyObj(){
 		super();
-		this.mass = 0;
-		this.distance = 0;
-		this.diameter = 0;
-		this.rotation = 0;
+		setMass(0);
+		setDiameter(0);
+		setDistance(0);
+		setRotation(0);
+		setDistanceCount(0);
+		setDiameterCount(0);
+		setMassCount(0);
+		setRotationCount(0);
 		
 	}
 	
