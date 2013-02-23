@@ -1,5 +1,6 @@
 package Problem2;
         
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
         
@@ -21,8 +22,9 @@ public class WordCount {
     public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
         StringTokenizer tokenizer = new StringTokenizer(line);
+        String docnum = tokenizer.nextToken();
         while (tokenizer.hasMoreTokens()) {
-            word.set(tokenizer.nextToken());
+            word.set(tokenizer.nextToken()+docnum);
             context.write(word, one);
         }
     }
@@ -54,10 +56,12 @@ public class WordCount {
     job.setInputFormatClass(TextInputFormat.class);
     job.setOutputFormatClass(TextOutputFormat.class);
     
+    Path outfile=new Path(args[1]);
     FileInputFormat.addInputPath(job, new Path(args[0]));
-    FileOutputFormat.setOutputPath(job, new Path(args[1]));
+    FileOutputFormat.setOutputPath(job, outfile);
     
     job.waitForCompletion(true);
+    
  }
-        
 }
+        
