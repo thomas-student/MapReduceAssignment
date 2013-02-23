@@ -26,7 +26,7 @@ public class WordCount {
             context.write(word, one);
         }
     }
- } 
+ } //hi
         
  public static class Reduce extends Reducer<Text, IntWritable, Text, IntWritable> {
 
