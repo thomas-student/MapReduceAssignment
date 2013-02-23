@@ -23,8 +23,8 @@ public class GalaxyObj extends MapWritable {
 
 	@Override
 	public String toString() {
-		return "massavg: " + mass + " distanceavg: "+ distance + 
-				"diameteravg: " + diameter + "rotationavg: " + rotation;
+		return "massavg: " + getMass() + " distanceavg: "+ getDistance() + 
+				"diameteravg: " + getDiameter()+ "rotationavg: " + getRotation();
 	}
 
 
@@ -152,7 +152,7 @@ public class GalaxyObj extends MapWritable {
 	 * @param distanceCount the distanceCount to set
 	 */
 	public void setDistanceCount(long distanceCount) {
-		put(new Text("distanceCount"), new FloatWritable(rotation));
+		put(new Text("distanceCount"), new FloatWritable(distanceCount));
 	}
 
 
