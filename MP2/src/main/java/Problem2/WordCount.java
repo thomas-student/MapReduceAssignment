@@ -33,7 +33,7 @@ public class WordCount {
     }
  } 
         
- public static class Reduce extends Reducer<Text, IntWritable, Text, MapWritable> {
+ public static class Reduce extends Reducer<Text, MapWritable, Text, MapWritable> {
 
     public void reduce(Text key, Iterable<MapWritable> values, Context context) 
       throws IOException, InterruptedException {
