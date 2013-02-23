@@ -3,26 +3,10 @@ package Problem3;
 import org.apache.hadoop.io.FloatWritable;
 import org.apache.hadoop.io.MapWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
 
 public class GalaxyObj extends MapWritable {
-
-	private float mass;
-	private float distance;
-	private float diameter;
-	private float rotation;
-	private long massCount;
-	private long distanceCount;
-	private long diameterCount;
-	private long rotationCount;
 	
-	/**
-	 * @param name
-	 * @param mass
-	 * @param distance
-	 * @param diameter
-	 * @param rotation
-	 * @param count
-	 */
 	public GalaxyObj(){
 		super();
 		setMass(0);
@@ -33,7 +17,6 @@ public class GalaxyObj extends MapWritable {
 		setDiameterCount(0);
 		setMassCount(0);
 		setRotationCount(0);
-		
 	}
 	
 
@@ -50,8 +33,11 @@ public class GalaxyObj extends MapWritable {
 	 * @return the mass
 	 */
 	public float getMass() {
-		return Float.parseFloat(get("mass").toString());
-	}
+		Writable d = get("mass");
+		if(d != null)
+			return Long.parseLong(d.toString());
+		else
+			return 0;	}
 
 
 
@@ -68,8 +54,11 @@ public class GalaxyObj extends MapWritable {
 	 * @return the distance
 	 */
 	public float getDistance() {
-		return Float.parseFloat(get("distance").toString());
-	}
+		Writable d = get("distance");
+		if(d != null)
+			return Long.parseLong(d.toString());
+		else
+			return 0;	}
 
 
 
@@ -86,7 +75,11 @@ public class GalaxyObj extends MapWritable {
 	 * @return the diameter
 	 */
 	public float getDiameter() {
-		return Float.parseFloat(get("diameter").toString());
+		Writable d = get("diameter");
+		if(d != null)
+			return Long.parseLong(d.toString());
+		else
+			return 0;	
 	}
 
 
@@ -104,8 +97,12 @@ public class GalaxyObj extends MapWritable {
 	 * @return the rotation
 	 */
 	public float getRotation() {
-		return Float.parseFloat(get("rotation").toString());
-	}
+		Writable d = get("rotation");
+		if(d != null)
+			return Float.parseFloat(d.toString());
+		else
+			return 0;	
+		}
 
 
 
@@ -122,8 +119,11 @@ public class GalaxyObj extends MapWritable {
 	 * @return the massCount
 	 */
 	public long getMassCount() {
-		return Long.parseLong((get("massCount").toString()));
-	}
+		Writable d = get("massCount");
+		if(d != null)
+			return Long.parseLong(d.toString());
+		else
+			return 0;	}
 
 
 
@@ -140,8 +140,11 @@ public class GalaxyObj extends MapWritable {
 	 * @return the distanceCount
 	 */
 	public long getDistanceCount() {
-		return Long.parseLong(get("distanceCount").toString());
-	}
+		Writable d = get("distanceCount");
+		if(d != null)
+			return Long.parseLong(d.toString());
+		else
+			return 0;	}
 
 
 
@@ -158,7 +161,11 @@ public class GalaxyObj extends MapWritable {
 	 * @return the diameterCount
 	 */
 	public long getDiameterCount() {
-		return Long.parseLong(get("diameterCount").toString());
+		Writable d = get("diameterCount");
+		if(d != null)
+			return Long.parseLong(d.toString());
+		else
+			return 0;
 	}
 
 
