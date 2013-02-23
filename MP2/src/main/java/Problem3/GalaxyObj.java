@@ -1,6 +1,10 @@
 package Problem3;
 
-public class GalaxyObj {
+import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.MapWritable;
+import org.apache.hadoop.io.Text;
+
+public class GalaxyObj extends MapWritable {
 
 	private float mass;
 	private float distance;
@@ -42,7 +46,7 @@ public class GalaxyObj {
 	 * @return the mass
 	 */
 	public float getMass() {
-		return mass;
+		return Float.parseFloat(get("mass").toString());
 	}
 
 
@@ -51,7 +55,7 @@ public class GalaxyObj {
 	 * @param mass the mass to set
 	 */
 	public void setMass(float mass) {
-		this.mass = mass;
+		put(new Text("mass"), new FloatWritable(mass));
 	}
 
 
@@ -60,7 +64,7 @@ public class GalaxyObj {
 	 * @return the distance
 	 */
 	public float getDistance() {
-		return distance;
+		return Float.parseFloat(get("distance").toString());
 	}
 
 
@@ -69,7 +73,7 @@ public class GalaxyObj {
 	 * @param distance the distance to set
 	 */
 	public void setDistance(float distance) {
-		this.distance = distance;
+		put(new Text("distance"), new FloatWritable(distance));
 	}
 
 
@@ -78,7 +82,7 @@ public class GalaxyObj {
 	 * @return the diameter
 	 */
 	public float getDiameter() {
-		return diameter;
+		return Float.parseFloat(get("diameter").toString());
 	}
 
 
@@ -87,7 +91,7 @@ public class GalaxyObj {
 	 * @param diameter the diameter to set
 	 */
 	public void setDiameter(float diameter) {
-		this.diameter = diameter;
+		put(new Text("diameter"), new FloatWritable(diameter));
 	}
 
 
@@ -96,7 +100,7 @@ public class GalaxyObj {
 	 * @return the rotation
 	 */
 	public float getRotation() {
-		return rotation;
+		return Float.parseFloat(get("rotation").toString());
 	}
 
 
@@ -105,7 +109,7 @@ public class GalaxyObj {
 	 * @param rotation the rotation to set
 	 */
 	public void setRotation(float rotation) {
-		this.rotation = rotation;
+		put(new Text("rotation"), new FloatWritable(rotation));
 	}
 
 
@@ -114,7 +118,7 @@ public class GalaxyObj {
 	 * @return the massCount
 	 */
 	public long getMassCount() {
-		return massCount;
+		return Long.parseLong((get("massCount").toString()));
 	}
 
 
@@ -123,7 +127,7 @@ public class GalaxyObj {
 	 * @param massCount the massCount to set
 	 */
 	public void setMassCount(long massCount) {
-		this.massCount = massCount;
+		put(new Text("massCount"), new FloatWritable(massCount));
 	}
 
 
@@ -132,7 +136,7 @@ public class GalaxyObj {
 	 * @return the distanceCount
 	 */
 	public long getDistanceCount() {
-		return distanceCount;
+		return Long.parseLong(get("distanceCount").toString());
 	}
 
 
@@ -141,7 +145,7 @@ public class GalaxyObj {
 	 * @param distanceCount the distanceCount to set
 	 */
 	public void setDistanceCount(long distanceCount) {
-		this.distanceCount = distanceCount;
+		put(new Text("distanceCount"), new FloatWritable(rotation));
 	}
 
 
@@ -150,7 +154,7 @@ public class GalaxyObj {
 	 * @return the diameterCount
 	 */
 	public long getDiameterCount() {
-		return diameterCount;
+		return Long.parseLong(get("diameterCount").toString());
 	}
 
 
@@ -159,7 +163,7 @@ public class GalaxyObj {
 	 * @param diameterCount the diameterCount to set
 	 */
 	public void setDiameterCount(long diameterCount) {
-		this.diameterCount = diameterCount;
+		put(new Text("diameterCount"), new FloatWritable(diameterCount));
 	}
 
 
@@ -168,7 +172,7 @@ public class GalaxyObj {
 	 * @return the rotationCount
 	 */
 	public long getRotationCount() {
-		return rotationCount;
+		return Long.parseLong(get("rotationCount").toString());
 	}
 
 
@@ -177,10 +181,7 @@ public class GalaxyObj {
 	 * @param rotationCount the rotationCount to set
 	 */
 	public void setRotationCount(long rotationCount) {
-		this.rotationCount = rotationCount;
+		put(new Text("rotationCount"), new FloatWritable(rotationCount));
 	}
-	
-	
-		
-	
+
 }
