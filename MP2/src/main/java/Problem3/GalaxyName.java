@@ -1,10 +1,18 @@
 package Problem3;
 
-public class GalaxyName {
+import java.io.DataInput;
+import java.io.DataOutput;
+import java.io.IOException;
+
+import org.apache.hadoop.io.Text;
+import org.apache.hadoop.io.Writable;
+
+public class GalaxyName extends Text{
 
 	private String name;
 	
 	public GalaxyName(String name){
+		super();
 		this.name = name;
 	}
 
@@ -14,7 +22,5 @@ public class GalaxyName {
 	@Override
 	public String toString() {
 		return "galaxy: "+name;
-	}
-
-	
+	}	
 }
