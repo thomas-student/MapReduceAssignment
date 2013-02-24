@@ -183,7 +183,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the rotationCount
 	 */
 	public long getRotationCount() {
-		Writable d = get("rorationCount");
+		Writable d = get("rotationCount");
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
