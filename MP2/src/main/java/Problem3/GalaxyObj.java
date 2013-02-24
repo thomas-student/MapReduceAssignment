@@ -33,7 +33,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the mass
 	 */
 	public float getMass() {
-		Writable d = get("mass");
+		Writable d = get( new Text("mass"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
@@ -54,7 +54,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the distance
 	 */
 	public float getDistance() {
-		Writable d = get("distance");
+		Writable d = get( new Text("distance"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
@@ -75,7 +75,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the diameter
 	 */
 	public float getDiameter() {
-		Writable d = get("diameter");
+		Writable d = get( new Text("diameter"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
@@ -97,7 +97,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the rotation
 	 */
 	public float getRotation() {
-		Writable d = get("rotation");
+		Writable d = get( new Text("rotation"));
 		if(d != null)
 			return Float.parseFloat(d.toString());
 		else
@@ -119,7 +119,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the massCount
 	 */
 	public long getMassCount() {
-		Writable d = get("massCount");
+		Writable d = get( new Text("massCount"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
@@ -140,7 +140,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the distanceCount
 	 */
 	public long getDistanceCount() {
-		Writable d = get("distanceCount");
+		Writable d = get( new Text("distanceCount"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
@@ -161,7 +161,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the diameterCount
 	 */
 	public long getDiameterCount() {
-		Writable d = get("diameterCount");
+		Writable d = get( new Text("diameterCount"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else
@@ -183,7 +183,7 @@ public class GalaxyObj extends MapWritable {
 	 * @return the rotationCount
 	 */
 	public long getRotationCount() {
-		Writable d = get("rotationCount");
+		Writable d = get( new Text("rotationCount"));
 		if(d != null)
 			return Long.parseLong(d.toString());
 		else

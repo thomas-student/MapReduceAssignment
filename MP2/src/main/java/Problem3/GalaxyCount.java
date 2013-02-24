@@ -30,16 +30,12 @@ public class GalaxyCount {
 			String[] diameters = line.split("rotation: ")[0]
 					.split("diameter: ")[1].split("\\ ");
 			String[] rotations = line.split("rotation: ")[1].split("\\ ");
+			System.out.println(masses.length);
 			for (String k : masses) {
-				try{
 				GalaxyObj o = new GalaxyObj();
 				o.setMass(Float.parseFloat(k));
 				o.setMassCount(1);
 				context.write(new GalaxyName(name), o);
-				}
-				catch(NumberFormatException e){
-					continue;
-				}
 			}
 			for (String k : distances) {
 				GalaxyObj o = new GalaxyObj();
@@ -72,7 +68,7 @@ public class GalaxyCount {
            	if(galaxy.getDiameterCount() != 0)
     		{
 	    		o.setDiameter( (o.getDiameter()*o.getDiameterCount() + 
-	    				(galaxy.getDiameter()*galaxy.getDiameterCount()))
+	    				(galaxy.getDiameter()*galaxy.getDiameterCount()) )
 	    				/(galaxy.getDiameterCount()+o.getDiameterCount()));
 	    		o.setDiameterCount(o.getDiameterCount()+galaxy.getDiameterCount());
     		}
