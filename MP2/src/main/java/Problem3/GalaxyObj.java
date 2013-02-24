@@ -36,7 +36,7 @@ public class GalaxyObj extends MapWritable {
 	public float getMass() {
 		Writable d = get( new Text("mass"));
 		if(d != null)
-			return Long.parseLong(d.toString());
+			return Float.parseFloat(d.toString());
 		else
 			return 0;	}
 
@@ -57,7 +57,7 @@ public class GalaxyObj extends MapWritable {
 	public float getDistance() {
 		Writable d = get( new Text("distance"));
 		if(d != null)
-			return Long.parseLong(d.toString());
+			return Float.parseFloat(d.toString());
 		else
 			return 0;	}
 
@@ -78,7 +78,7 @@ public class GalaxyObj extends MapWritable {
 	public float getDiameter() {
 		Writable d = get( new Text("diameter"));
 		if(d != null)
-			return Long.parseLong(d.toString());
+			return Float.parseFloat(d.toString());
 		else
 			return 0;	
 	}
