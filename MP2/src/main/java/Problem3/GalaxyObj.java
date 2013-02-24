@@ -25,7 +25,7 @@ public class GalaxyObj extends MapWritable {
 	@Override
 	public String toString() {
 		return "massavg: " + getMass() + " distanceavg: "+ getDistance() + 
-				"diameteravg: " + getDiameter()+ "rotationavg: " + getRotation();
+				" diameteravg: " + getDiameter()+ " rotationavg: " + getRotation();
 	}
 
 
