@@ -1,6 +1,7 @@
 package Problem3;
 
 import org.apache.hadoop.io.FloatWritable;
+import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.MapWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
@@ -131,7 +132,7 @@ public class GalaxyObj extends MapWritable {
 	 * @param massCount the massCount to set
 	 */
 	public void setMassCount(long massCount) {
-		put(new Text("massCount"), new FloatWritable(massCount));
+		put(new Text("massCount"), new LongWritable(massCount));
 	}
 
 
@@ -152,7 +153,7 @@ public class GalaxyObj extends MapWritable {
 	 * @param distanceCount the distanceCount to set
 	 */
 	public void setDistanceCount(long distanceCount) {
-		put(new Text("distanceCount"), new FloatWritable(distanceCount));
+		put(new Text("distanceCount"), new LongWritable(distanceCount));
 	}
 
 
@@ -174,7 +175,7 @@ public class GalaxyObj extends MapWritable {
 	 * @param diameterCount the diameterCount to set
 	 */
 	public void setDiameterCount(long diameterCount) {
-		put(new Text("diameterCount"), new FloatWritable(diameterCount));
+		put(new Text("diameterCount"), new LongWritable(diameterCount));
 	}
 
 
@@ -196,7 +197,7 @@ public class GalaxyObj extends MapWritable {
 	 * @param rotationCount the rotationCount to set
 	 */
 	public void setRotationCount(long rotationCount) {
-		put(new Text("rotationCount"), new FloatWritable(rotationCount));
+		put(new Text("rotationCount"), new LongWritable(rotationCount));
 	}
 
 }
